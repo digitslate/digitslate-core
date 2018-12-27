@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  digitslated The DigitSlate server.
+#
+#
+# chkconfig: 345 80 20
+# description: digitslated
+# processname: digitslated
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/digitslated, see below
+if [ -f /etc/sysconfig/digitslated ]; then
+        . /etc/sysconfig/digitslated
+fi
+
+RETVAL=0
+
+prog=digitslated
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/digitslated
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/digitslated}
+
+# digitslated defaults to /usr/bin/digitslated, override with BITCOIND_BIN
+digitslated=${BITCOIND_BIN-/usr/bin/digitslated}
+
+# digitslated opts default to -disablewallet, override with BITCOIND_OPTS
+digitslated_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $digitslated $digitslated_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

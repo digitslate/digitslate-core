@@ -1,0 +1,6 @@
+usr/local/bin/digitslate-qt usr/bin
+share/pixmaps/digitslate32.xpm usr/share/pixmaps
+share/pixmaps/digitslate16.xpm usr/share/pixmaps
+share/pixmaps/digitslate128.png usr/share/pixmaps
+debian/digitslate-qt.desktop usr/share/applications
+debian/digitslate-qt.protocol usr/share/kde4/services/

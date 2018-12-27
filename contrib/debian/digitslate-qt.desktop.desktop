@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DigitSlate
+Comment=DigitSlate P2P Cryptocurrency
+Exec=digitslate-qt %u
+Terminal=false
+Type=Application
+Icon=digitslate128
+MimeType=x-scheme-handler/digitslate;
+Categories=Office;Finance;
+Name[en_US]=digitslate-qt.desktop
