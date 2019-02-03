@@ -175,7 +175,7 @@ script: |
        *) make ${MAKEOPTS} -C src check-symbols ;;
     esac
 
-    make install DESTDIR=${INSTALLPATH}
+    make install-strip DESTDIR=${INSTALLPATH}
     cd installed
     find . -name "lib*.la" -delete
     find . -name "lib*.a" -delete
