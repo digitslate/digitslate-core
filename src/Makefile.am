@@ -31,7 +31,7 @@ $(LIBUNIVALUE): $(wildcard univalue/lib/*) $(wildcard univalue/include/*)
 # But to build the less dependent modules first, we manually select their order here:
 EXTRA_LIBRARIES += \
   crypto/libbitcoin_crypto.a \
-  libbitcoin_util.a \
+  $(LIBBITCOIN_UTIL) \
   libbitcoin_common.a \
   libbitcoin_server.a \
   libbitcoin_cli.a
