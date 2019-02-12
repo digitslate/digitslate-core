@@ -13,10 +13,10 @@ fi
 if test -z $with_qt_translationdir; then
   with_qt_translationdir=$depends_prefix/translations
 fi
-if test -z $with_qt_bindir; then
+if test -z $with_qt_bindir && test -z "@no_qt@"; then
   with_qt_bindir=$depends_prefix/native/bin
 fi
-if test -z $with_protoc_bindir; then
+if test -z $with_protoc_bindir && test -z "@no_qt@"; then
   with_protoc_bindir=$depends_prefix/native/bin
 fi
 if test -z $with_comparison_tool; then
