@@ -2006,7 +2006,7 @@
     <name>SplashScreen</name>
     <message>
         <source>The Bitcoin Core developers</source>
-        <translation>ビットコインコアの開発者</translation>
+        <translation>ディジットスレートコアの開発者</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2977,7 +2977,7 @@
     </message>
     <message>
         <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL オプション： (SSLのセットアップ手順はビットコインWikiを参照してください)</translation>
+        <translation>RPC SSL オプション： (SSLのセットアップ手順はディジットスレートWikiを参照してください)</translation>
     </message>
     <message>
         <source>RPC server options:</source>

@@ -127,10 +127,11 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x000009f0353e76cd91b30ccb8cdc75a8fe32577c8a24b6984d4bb4abd802c04b"));
         assert(genesis.hashMerkleRoot     == uint256S("0xcc52975a2e4abaab4f00f62410cb896c6aab70b7b8f999c383b60ec92f7b384d"));
 
-        //vSeeds.push_back(CDNSSeedData("digitslate1", "vmwin.eastus.cloudapp.azure.com"));
-        vSeeds.push_back(CDNSSeedData("s1", "cdns.digitslate.io"));
-        vSeeds.push_back(CDNSSeedData("s2", "cdns.digitslate.com"));
-        vSeeds.push_back(CDNSSeedData("s3", "cdns.digitslate.net"));
+        vSeeds.push_back(CDNSSeedData("ds1", "ds1.digitslate.io"));
+        vSeeds.push_back(CDNSSeedData("ds2", "ds2.digitslate.io"));
+        vSeeds.push_back(CDNSSeedData("ds3", "ds3.digitslate.io"));
+        vSeeds.push_back(CDNSSeedData("ds4", "ds4.digitslate.io"));
+        vSeeds.push_back(CDNSSeedData("ds5", "ds5.digitslate.io"));
 
         //vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         //vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.
@@ -163,9 +164,10 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (    0, uint256S("0x000009f0353e76cd91b30ccb8cdc75a8fe32577c8a24b6984d4bb4abd802c04b")),            
+            (        0, uint256S("0x000009f0353e76cd91b30ccb8cdc75a8fe32577c8a24b6984d4bb4abd802c04b"))
+            (    20000, uint256S("0x0000000020353d4f27a281c06351e1045702b5767a6117992a53411be72d0260")),           
             1543277053, // * UNIX timestamp of last checkpoint block
-            10,         // * total number of transactions between genesis and last checkpoint
+            10000,      // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             10000       // * estimated number of transactions per day after checkpoint
         };

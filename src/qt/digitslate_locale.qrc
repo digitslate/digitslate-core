@@ -1,9 +1,9 @@
 <!DOCTYPE RCC><RCC version="1.0">
     <qresource prefix="/translations">
-        <!-- <file alias="bg">locale/digitslate_bg.qm</file>
-        <file alias="de">locale/digitslate_de.qm</file> -->
+        <file alias="bg">locale/digitslate_bg.qm</file>
+        <file alias="de">locale/digitslate_de.qm</file>
         <file alias="en">locale/digitslate_en.qm</file>
-        <!-- <file alias="es">locale/digitslate_es.qm</file>
+        <file alias="es">locale/digitslate_es.qm</file>
         <file alias="fi">locale/digitslate_fi.qm</file>
         <file alias="fr">locale/digitslate_fr.qm</file>
         <file alias="it">locale/digitslate_it.qm</file>
@@ -15,6 +15,6 @@
         <file alias="sv">locale/digitslate_sv.qm</file>
         <file alias="vi">locale/digitslate_vi.qm</file>
         <file alias="zh_CN">locale/digitslate_zh_CN.qm</file>
-        <file alias="zh_TW">locale/digitslate_zh_TW.qm</file> -->
+        <file alias="zh_TW">locale/digitslate_zh_TW.qm</file>
     </qresource>
 </RCC>
