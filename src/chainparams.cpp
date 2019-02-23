@@ -77,7 +77,7 @@ public:
         consensus.nBudgetPaymentsCycleBlocks = 20160;//21 days;
         consensus.nBudgetPaymentsWindowBlocks = 100;
         consensus.nBudgetProposalEstablishingTime = 60*60*24;
-        consensus.nSuperblockStartBlock = 22180; // year 10000+
+        consensus.nSuperblockStartBlock = 2100000000; // year 10000+
         consensus.nSuperblockCycle = 20160;//21 days
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;

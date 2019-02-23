@@ -35,7 +35,7 @@ static const int64_t SPORK_5_INSTANTSEND_MAX_VALUE_DEFAULT              = 1000; 
 
 static const int64_t SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT_DEFAULT     = 1522268184;   // ON Wednesday, 28 de March de 2018 às 20:16:24
 
-static const int64_t SPORK_9_SUPERBLOCKS_ENABLED_DEFAULT                = 1523649600;// ON
+static const int64_t SPORK_9_SUPERBLOCKS_ENABLED_DEFAULT                = 4070908800ULL;// OFF
 static const int64_t SPORK_10_MASTERNODE_PAY_UPDATED_NODES_DEFAULT      = 4070908800ULL;// OFF
 static const int64_t SPORK_12_RECONSIDER_BLOCKS_DEFAULT                 = 0;            // 0 BLOCKS
 static const int64_t SPORK_13_OLD_SUPERBLOCK_FLAG_DEFAULT               = 4070908800ULL;// OFF

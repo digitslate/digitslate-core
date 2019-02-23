@@ -168,6 +168,11 @@ void CGovernanceManager::ProcessMessage(CNode* pfrom, std::string& strCommand, C
         uint256 nHash = govobj.GetHash();
         std::string strHash = nHash.ToString();
 
+        if (govobj.nObjectType == GOVERNANCE_OBJECT_WATCHDOG) {
+           LogPrint("gobject", "MNGOVERNANCEOBJECT -- watchdog disabled, received invalid object\n");
+           return;
+        }
+
         pfrom->setAskFor.erase(nHash);
 
         LogPrint("gobject", "MNGOVERNANCEOBJECT -- Received object: %s\n", strHash);
@@ -338,25 +343,10 @@ bool CGovernanceManager::AddGovernanceObject(CGovernanceObject& govobj, bool& fA
 
     LogPrint("gobject", "CGovernanceManager::AddGovernanceObject -- Adding object: hash = %s, type = %d\n", nHash.ToString(), govobj.GetObjectType()); 
 
+    // IGNORE WATCHDOG
     if(govobj.nObjectType == GOVERNANCE_OBJECT_WATCHDOG) {
-        // If it's a watchdog, make sure it fits required time bounds
-        if((govobj.GetCreationTime() < GetAdjustedTime() - GOVERNANCE_WATCHDOG_EXPIRATION_TIME ||
-            govobj.GetCreationTime() > GetAdjustedTime() + GOVERNANCE_WATCHDOG_EXPIRATION_TIME)
-            ) {
-            // drop it
-            LogPrint("gobject", "CGovernanceManager::AddGovernanceObject -- CreationTime is out of bounds: hash = %s\n", nHash.ToString());
-            return false;
-        }
-
-        if(!UpdateCurrentWatchdog(govobj)) {
-            // Allow wd's which are not current to be reprocessed
-            fAddToSeen = false;
-            if(pfrom && (nHashWatchdogCurrent != uint256())) {
-                pfrom->PushInventory(CInv(MSG_GOVERNANCE_OBJECT, nHashWatchdogCurrent));
-            }
-            LogPrint("gobject", "CGovernanceManager::AddGovernanceObject -- Watchdog not better than current: hash = %s\n", nHash.ToString());
-            return false;
-        }
+        LogPrint("gobject", "MNGOVERNANCEOBJECT -- watchdog disabled, received invalid object\n");
+        return false;
     }
 
     // INSERT INTO OUR GOVERNANCE OBJECT MEMORY
@@ -376,8 +366,8 @@ bool CGovernanceManager::AddGovernanceObject(CGovernanceObject& govobj, bool& fA
         DBG( cout << "CGovernanceManager::AddGovernanceObject After AddNewTrigger" << endl; );
         break;
     case GOVERNANCE_OBJECT_WATCHDOG:
-        mapWatchdogObjects[nHash] = govobj.GetCreationTime() + GOVERNANCE_WATCHDOG_EXPIRATION_TIME;
-        LogPrint("gobject", "CGovernanceManager::AddGovernanceObject -- Added watchdog to map: hash = %s\n", nHash.ToString());
+        //mapWatchdogObjects[nHash] = govobj.GetCreationTime() + GOVERNANCE_WATCHDOG_EXPIRATION_TIME;
+        //LogPrint("gobject", "CGovernanceManager::AddGovernanceObject -- Added watchdog to map: hash = %s\n", nHash.ToString());
         break;
     default:
         break;

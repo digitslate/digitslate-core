@@ -180,9 +180,12 @@ UniValue gobject(const UniValue& params, bool fHelp)
              << ", txidFee = " << txidFee.GetHex()
              << endl; );
 
+        // WATCHDOG creation disabled
+        if (govobj.GetObjectType() == GOVERNANCE_OBJECT_WATCHDOG) {
+          throw JSONRPCError(RPC_INVALID_PARAMETER, "WATCHDOG_DISABLED");
+        }
         // Attempt to sign triggers if we are a MN
-        if((govobj.GetObjectType() == GOVERNANCE_OBJECT_TRIGGER) ||
-           (govobj.GetObjectType() == GOVERNANCE_OBJECT_WATCHDOG)) {
+        if((govobj.GetObjectType() == GOVERNANCE_OBJECT_TRIGGER)) {
             if(fMnFound) {
                 govobj.SetMasternodeInfo(mn.vin);
                 govobj.Sign(activeMasternode.keyMasternode, activeMasternode.pubKeyMasternode);

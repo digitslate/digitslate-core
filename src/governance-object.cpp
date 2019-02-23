@@ -450,8 +450,7 @@ bool CGovernanceObject::IsValidLocally(std::string& strError, bool& fMissingMast
 
     switch(nObjectType) {
         case GOVERNANCE_OBJECT_PROPOSAL:
-        case GOVERNANCE_OBJECT_TRIGGER:
-        case GOVERNANCE_OBJECT_WATCHDOG:
+        case GOVERNANCE_OBJECT_TRIGGER:        
             break;
         default:
             strError = strprintf("Invalid object type %d", nObjectType);
@@ -463,7 +462,7 @@ bool CGovernanceObject::IsValidLocally(std::string& strError, bool& fMissingMast
     // CHECK COLLATERAL IF REQUIRED (HIGH CPU USAGE)
 
     if(fCheckCollateral) { 
-        if((nObjectType == GOVERNANCE_OBJECT_TRIGGER) || (nObjectType == GOVERNANCE_OBJECT_WATCHDOG)) {
+        if((nObjectType == GOVERNANCE_OBJECT_TRIGGER)) {
             std::string strOutpoint = vinMasternode.prevout.ToStringShort();
             masternode_info_t infoMn = mnodeman.GetMasternodeInfo(vinMasternode);
             if(!infoMn.fInfoValid) {
