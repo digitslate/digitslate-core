@@ -1,7 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Dash developers
-// Copyright (c) 2018-now  The DigitSlate developers
+// Copyright (c) 2018-2019  The DigitSlate developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -71,12 +70,12 @@ public:
         consensus.nSubsidyHalvingInterval = 87600; // one year
         consensus.nMasternodePaymentsStartBlock = 240; // 1 day
         consensus.nMasternodePaymentsIncreaseBlock = 158000; // not used
-        consensus.nMasternodePaymentsIncreasePeriod = 576*30; // not used
+        consensus.nMasternodePaymentsIncreasePeriod = 576 * 30; // not used
         consensus.nInstantSendKeepLock = 24;
         consensus.nBudgetPaymentsStartBlock = 22180; // year 10000+
         consensus.nBudgetPaymentsCycleBlocks = 20160;//21 days;
         consensus.nBudgetPaymentsWindowBlocks = 100;
-        consensus.nBudgetProposalEstablishingTime = 60*60*24;
+        consensus.nBudgetProposalEstablishingTime = 60 * 60 * 24;
         consensus.nSuperblockStartBlock = 2100000000; // year 10000+
         consensus.nSuperblockCycle = 20160;//21 days
         consensus.nGovernanceMinQuorum = 10;
@@ -85,8 +84,8 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
-        consensus.BIP34Height = 227931; // FIX
-        consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8"); // FIX        
+        consensus.BIP34Height = 27000;
+        consensus.BIP34Hash = uint256S("");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan =  24 * 60 * 60; // 1 day
         consensus.nPowTargetSpacing =  6 * 60; // 360 seconds
@@ -100,8 +99,8 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1502280000; // Aug 9th, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1533816000; // Aug 9th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1554048000; // Apr 1th, 2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1554825600; // Apt 10th, 2019
 
         // Consensus Update v1.2.0
         consensus.mConsensusHeight1_2_0 = 9000;
@@ -199,8 +198,8 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 51;
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
-        consensus.BIP34Height = 21111; // FIX
-        consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8"); // FIX
+        consensus.BIP34Height = 2;
+        consensus.BIP34Hash = uint256S("");
         consensus.powLimit = uint256S("00fffff000000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 24 * 60 * 60; // 1 day
         consensus.nPowTargetSpacing = 3 * 60;   // 3 minutes
@@ -327,6 +326,7 @@ public:
         genesis = CreateGenesisBlock(1543278791, 2614551, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         //printf("block.GetHash() == %s\n", genesis.GetHash().ToString().c_str());
+        strprintf("block.GetHash() == %s\n", genesis.GetHash().ToString().c_str());
         assert(consensus.hashGenesisBlock == uint256S("0x000009f0353e76cd91b30ccb8cdc75a8fe32577c8a24b6984d4bb4abd802c04b"));
         assert(genesis.hashMerkleRoot     == uint256S("0xcc52975a2e4abaab4f00f62410cb896c6aab70b7b8f999c383b60ec92f7b384d"));
 
