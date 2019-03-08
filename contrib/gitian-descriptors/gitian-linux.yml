@@ -1,5 +1,5 @@
 ---
-name: "digitslate-linux-1.4.0"
+name: "digitslate-linux-1.5.0"
 enable_cache: true
 suites:
 - "bionic"

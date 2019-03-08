@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The DigitSlate developers
+// Copyright (c) 2018-2019 The DigitSlate developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,7 +10,7 @@
  * network protocol versioning
  */
 
-static const int PROTOCOL_VERSION = 70211;
+static const int PROTOCOL_VERSION = 70212;
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;

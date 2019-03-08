@@ -1,5 +1,5 @@
 ---
-name: "digitslate-raspberry-0.12"
+name: "digitslate-raspberry-1.5.0"
 enable_cache: true
 suites:
 - "precise"
